@@ -1,4 +1,3 @@
-// @ts-nocheck
 let xp = 0;
 let health = 100;
 let gold = 50;
@@ -30,21 +29,36 @@ const locations = [
     "button functions": [buyHealth, buyWeapon, goTown],
     text: "You enter the store."
   },
-
+  {
+    name: "cave",
+    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+    "button functions": [fightSlime, fightBeast, goTown],
+    text: "You enter the cave. You see some monsters."
+  }
 ];
 
 // initialize buttons
+// @ts-ignore
 button1.onclick = goStore;
+// @ts-ignore
 button2.onclick = goCave;
+// @ts-ignore
 button3.onclick = fightDragon;
 
 function update(location) {
+  // @ts-ignore
   button1.innerText = location["button text"][0];
+  // @ts-ignore
   button2.innerText = location["button text"][1];
+  // @ts-ignore
   button3.innerText = location["button text"][2];
+  // @ts-ignore
   button1.onclick = location["button functions"][0];
+  // @ts-ignore
   button2.onclick = location["button functions"][1];
+  // @ts-ignore
   button3.onclick = location["button functions"][2];
+  // @ts-ignore
   text.innerText = location.text;
 }
 
@@ -57,7 +71,7 @@ function goStore() {
 }
 
 function goCave() {
-  console.log("Going to cave.");
+  update(locations[2]);
 }
 
 function fightDragon() {
@@ -65,7 +79,7 @@ function fightDragon() {
 }
 
 function buyHealth() {
-
+  
 }
 
 function buyWeapon() {
