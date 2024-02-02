@@ -38,27 +38,17 @@ const locations = [
 ];
 
 // initialize buttons
-// @ts-ignore
 button1.onclick = goStore;
-// @ts-ignore
 button2.onclick = goCave;
-// @ts-ignore
 button3.onclick = fightDragon;
 
 function update(location) {
-  // @ts-ignore
   button1.innerText = location["button text"][0];
-  // @ts-ignore
   button2.innerText = location["button text"][1];
-  // @ts-ignore
   button3.innerText = location["button text"][2];
-  // @ts-ignore
   button1.onclick = location["button functions"][0];
-  // @ts-ignore
   button2.onclick = location["button functions"][1];
-  // @ts-ignore
   button3.onclick = location["button functions"][2];
-  // @ts-ignore
   text.innerText = location.text;
 }
 
@@ -79,7 +69,14 @@ function fightDragon() {
 }
 
 function buyHealth() {
-  
+  if (gold >= 10) {
+    gold -= 10;
+    health += 10;
+    goldText.innerText = gold;
+    healthText.innerText = health;
+  } else {
+    text.innerText = "You do not have enough gold to buy health.";
+  }
 }
 
 function buyWeapon() {
