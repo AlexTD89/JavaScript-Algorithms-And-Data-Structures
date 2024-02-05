@@ -198,6 +198,9 @@ function attack() {
       defeatMonster();
     }
   }
+  if (Math.random() <= .1) {
+    text.innerText += " Your "+inventory.pop()+" breaks.";
+  }
 }
 
 function getMonsterAttackValue(level) {
@@ -207,8 +210,8 @@ function getMonsterAttackValue(level) {
 }
 
 function isMonsterHit() {
-    return Math.random() > .2 || health < 20;
-  }
+  return Math.random() > .2 || health < 20;
+}
 
 function dodge() {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
